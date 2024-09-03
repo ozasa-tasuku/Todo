@@ -1,8 +1,9 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\PostController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,12 +15,11 @@ use App\Http\Controllers\PostController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/', function () { return view('welcome'); });
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', function() {    return view('tasks.index');});
 
-Route::get('/tasks', [PostController::class, 'index']);
+Route::get('/', [PostController::class, 'index']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
