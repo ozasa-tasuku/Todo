@@ -16,12 +16,9 @@
             <div class='task'>
                 <h2 class='title'>{{ $task->title }}</h2>
                 <p class='body'>{{ $task->body }}</p>
-                <p class='due'>{{ $task->due_date }} {{ $task->due_time }}</p>
+                <p class='due'>期限 {{ $task->due_date }} {{ $task->due_time }}</p>
             </div>
             @endforeach
         </div>
-        <div class='paginate'>
-            {{ $posts->links() }}
-        <div>
     </body>
 </html>

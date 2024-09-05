@@ -7,7 +7,8 @@ use App\Models\Task;
 
 class PostController extends Controller
 {
-   public function index(Task $task){
-        return view('tasks.index')->with(['tasks' => $task->getPaginateByLimit()]);   
+   public function index(){
+       $tasks = Task::all();
+        return view('tasks.index')->with('tasks', $tasks);   
    }
 }
