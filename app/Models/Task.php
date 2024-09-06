@@ -7,6 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Task extends Model
 {
+    protected $fillable = [
+    'title',
+    'body',
+    'due_date',
+    'due_time'
+    ];
+    
     use HasFactory;
     
     public function getByLimit(int $limit_count = 10)

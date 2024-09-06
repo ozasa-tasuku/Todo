@@ -11,6 +11,7 @@
     </head>
     <body class="antialiased">
         <h1>Todo リスト</h1>
+        <a href='/tasks/create'>create</a>
         <div class='tasks'>
             @foreach ($tasks as $task)
             <div class='task'>
