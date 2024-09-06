@@ -28,6 +28,8 @@ Route::put('/tasks/{task}', [PostController::class, 'update']);
 
 Route::post('/tasks', [PostController::class, 'store']);
 
+Route::delete('/tasks/{task}', [PostController::class,'delete']);
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
