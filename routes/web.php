@@ -18,7 +18,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PostController::class, 'index']);
 
+Route::get('/tasks/create', [PostController::class, 'create']);
+
 Route::get('/tasks/{task}', [PostController::class ,'show']);
+
+Route::get('/tasks/{task}/edit', [PostController::class, 'edit']);
+
+Route::put('/tasks/{task}', [PostController::class, 'update']);
+
+Route::post('/tasks', [PostController::class, 'store']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
