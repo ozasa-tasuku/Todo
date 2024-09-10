@@ -22,6 +22,7 @@
                 <p class='due'>期限 {{ $task->due_date }} {{ $task->due_time }}</p>
             </div>
             @endforeach
+            {{ Auth::user()->name }}
         </div>
     </body>
 </html>

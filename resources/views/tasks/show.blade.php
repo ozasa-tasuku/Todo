@@ -17,6 +17,13 @@
                 <p>{{ $task->body }}</p>
                 <h3>期限</h3>
                 <p class='due'>{{ $task->due_date }} {{ $task->due_time }}</p>
+                <form action="/tasks/{{ $task->id }}/point" method="post">
+                    @csrf
+                    @method('PUT')
+                    <input type="range" min="0" max="100" id="slider" value="{{ $task->point }}" name='task[point]'>
+                    <span id="sliderValue">{{ $task->point }}</span>
+                    <input type="submit" value="保存">
+                </form>
             </div>
         </div>
         <div class="edit">
@@ -38,6 +45,23 @@
             document.getElementById(`form_${id}`).submit();
         }
     }
+
+
+    let ipt=document.getElementById("slider"); 
+
+    let spn=document.getElementById("sliderValue"); 
+
+    let rangeValue=function(ipt,spn){         
+
+      return function(){                      
+
+        spn.innerHTML=ipt.value;             
+
+      }
+
+    }
+
+    ipt.addEventListener("input",rangeValue(ipt,spn));
     </script>
     </body>
 </html>

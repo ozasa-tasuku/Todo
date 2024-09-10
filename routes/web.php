@@ -1,9 +1,8 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-
-use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,24 +14,28 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-Route::get('/', [PostController::class, 'index']);
-
-Route::get('/tasks/create', [PostController::class, 'create']);
-
-Route::get('/tasks/{task}', [PostController::class ,'show']);
-
-Route::get('/tasks/{task}/edit', [PostController::class, 'edit']);
-
-Route::put('/tasks/{task}', [PostController::class, 'update']);
-
-Route::post('/tasks', [PostController::class, 'store']);
-
-Route::delete('/tasks/{task}', [PostController::class,'delete']);
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::controller(PostController::class)->middleware(['auth'])->group(function(){
+Route::get('/', 'index')->name('index');
+
+Route::get('/tasks/create', 'create')->name('create');
+
+Route::get('/tasks/{task}', 'show')->name('show');
+
+Route::get('/tasks/{task}/edit', 'edit')->name('edit');
+
+Route::put('/tasks/{task}/point', 'point')->name('point');
+
+Route::put('/tasks/{task}', 'update')->name('update');
+
+Route::post('/tasks', 'store')->name('store');
+
+Route::delete('/tasks/{task}','delete')->name('delete');
+
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
