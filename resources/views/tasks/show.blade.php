@@ -20,7 +20,7 @@
                 <form action="/tasks/{{ $task->id }}/point" method="post">
                     @csrf
                     @method('PUT')
-                    <input type="range" min="0" max="100" id="slider" value="{{ $task->point }}" name='task[point]'>
+                    <input type="range" min="0" max="10" id="slider" value="{{ $task->point }}" name='task[point]'>
                     <span id="sliderValue">{{ $task->point }}</span>
                     <input type="submit" value="保存">
                 </form>
