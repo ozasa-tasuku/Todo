@@ -49,4 +49,13 @@ class PostController extends Controller
         $task->delete();
         return redirect('/');
     }
+    
+   public function point(Request $request, Task $task)
+    {
+        $input_task = $request['task'];
+        $task->point=$input_task['point'];
+        $task->save();
+
+        return redirect('/tasks/' . $task->id);
+    } 
 }
