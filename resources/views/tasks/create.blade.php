@@ -3,9 +3,11 @@
     <head>
         <meta charset="utf-8">
         <title>Todo</title>
+        <link rel="stylesheet" href="/css/createstyle.css">
     </head>
     <body>
         <h1>Task作成</h1>
+        <hr class="line">
         <form action="/tasks" method="POST">
             @csrf
             <div class="title">
@@ -21,6 +23,7 @@
             <div>
             <input type="submit" value="store"/>
         </form>
+        <hr class="line">
         <div class="footer">
             <a href="/">戻る</a>
         </div>
