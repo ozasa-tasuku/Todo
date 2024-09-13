@@ -1,0 +1,40 @@
+.no-break {
+        white-space: nowrap;
+    }
+    
+.due {
+        background-color: #f9f9f9; /* 背景色 */
+        border-radius: 5px; /* 角を丸くする */
+        text-align: center; /* テキストを中央寄せ */
+        font-size: 18px; /* フォントサイズ */
+        color: #333; /* テキストの色 */
+        position: relative;
+        margin: 2em 0;
+        padding: 0.5em 1em;
+        border: solid 3px #ff7d6e;
+    }
+.due .box-title {
+        position: absolute;
+        display: inline-block;
+        top: -27px;
+        left: 1px;
+        padding: 0 9px;
+        height: 25px;
+        line-height: 25px;
+        font-size: 17px;
+        background: #ff7d6e;
+        color: #ffffff;
+        font-weight: bold;
+        border-radius: 5px 5px 0 0;
+    }
+.due p {
+        margin: 0; 
+        padding: 0;
+    }
+    
+.line{
+    border: none;
+    height: 2px;
+    background-color: #999999;
+    margin-bottom: 20px;
+}

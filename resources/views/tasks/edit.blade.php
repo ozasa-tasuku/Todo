@@ -3,9 +3,11 @@
     <head>
         <meta charset="utf-8">
         <title>Todo</title>
+        <link rel="stylesheet" href="/css/editstyle.css">
     </head>
     <body>
        <h1 class="title">編集画面</h1>
+       <hr class="line">
          <div class="content">
          <form action="/tasks/{{ $task->id }}" method="POST">
             @csrf
@@ -24,6 +26,7 @@
             <div>
             <input type="submit" value="update"/>
         </form>
+        <hr class="line">
         <div class="footer">
             <a href="/tasks/{{$task->id}}">戻る</a>
         </div>

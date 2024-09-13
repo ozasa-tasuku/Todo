@@ -3,20 +3,27 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Posts</title>
+        <title>Task詳細</title>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('css/showstyle.css') }}">
     </head>
     <body>
+        <h2>Task詳細</h2>
+        <hr class="line">
         <h1 class="title">
             {{ $task->title }}
         </h1>
+        <div class="due">
+            <span class="box-title">期限</span>
+            <p>{{ \Carbon\Carbon::parse($task->due_date . ' ' . $task->due_time)->format('Y年n月j日 H:i') }}</p>
+        </div>
         <div class="content">
             <div class="content__task">
                 <h3>内容</h3>
-                <p>{{ $task->body }}</p>
-                <h3>期限</h3>
-                <p class='due'>{{ $task->due_date }} {{ $task->due_time }}</p>
+                <p>{{ $task->body }}
+                    
+                </p>
                 <form action="/tasks/{{ $task->id }}/point" method="post">
                     @csrf
                     @method('PUT')
@@ -27,13 +34,14 @@
             </div>
         </div>
         <div class="edit">
-            <a href="/tasks/{{ $task->id }}/edit">edit</a>
+            <a href="/tasks/{{ $task->id }}/edit">repeat</a>
         </div>
         <form action="/tasks/{{ $task->id }}" id="form_{{ $task->id }}" method="post">
         @csrf
         @method('DELETE')
         <button type="button" onclick="deleteTask({{ $task->id }})">delete</button> 
         </form>
+        <hr class="line">
         <div class="footer">
             <a href="/">戻る</a>
         </div>

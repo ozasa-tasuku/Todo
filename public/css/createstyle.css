@@ -1,0 +1,16 @@
+input[type="text"] {
+    width: 300px; /* テキストボックスの横幅を300pxに設定 */
+    height: 40px; /* テキストボックスの高さを40pxに設定 */
+}
+
+textarea {
+    width: 300px; /* テキストエリアの横幅を300pxに設定 */
+    height: 150px; /* テキストエリアの高さを150pxに設定 */
+}
+
+.line{
+    border: none;
+    height: 2px;
+    background-color: #999999;
+    margin-bottom: 20px;
+}
