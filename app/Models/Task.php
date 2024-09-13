@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Task extends Model
 {
     protected $fillable = [
+    'user_id',
     'title',
     'body',
     'due_date',

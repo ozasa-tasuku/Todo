@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Task;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
    public function index()
    {
-       $tasks = Task::all();
+       $userId=Auth::user()->id;
+       $tasks = Task::all()->where('user_id',$userId);
         return view('tasks.index')->with('tasks', $tasks);   
    }
    
@@ -26,7 +28,9 @@ class PostController extends Controller
     
     public function store(Request $request, Task $task)
     {
+        $userId=Auth::user()->id;
         $input = $request['task'];
+        $input['user_id']=$userId;
         $task->fill($input)->save();
         return redirect('/tasks/' . $task->id);
     }
